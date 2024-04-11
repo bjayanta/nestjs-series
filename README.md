@@ -1,14 +1,12 @@
-# Lesson 2
+# Lesson 3
 
-1. Starter Code + Quick Review
-2. What are Controllers? And how do they work?
-3. Controller structure
-4. GET Routes
-5. Route Order is Important
-6. POST Route
-7. PATCH Route
-8. DELETE Route
-9. Query Parameters
+1. Starter Code
+2. Quick Review & Lesson Goals
+3. What are NestJS Providers?
+4. Create the Service Class
+5. Dependency Injection & the Constructor
+6. Update the Controller
+7. Test the Endpoints
 
 ## Commands
 
