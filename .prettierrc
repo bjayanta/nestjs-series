@@ -1,4 +1,15 @@
 {
+  "useTabs": true,
+  "tabWidth": 4,
+  "semi": true,
   "singleQuote": true,
-  "trailingComma": "all"
+  "jsxSingleQuote": false,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "arrowParens": "avoid",
+  "importOrder": ["^[./]"],
+  "importOrderSortSpecifiers": true,
+  "importOrderSeparation": true,
+  "parser": "typescript"
 }

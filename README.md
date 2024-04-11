@@ -1,15 +1,14 @@
-# Lesson 1
+# Lesson 2
 
-1. Intro
-2. What is NestJS? Why use it?
-3. Prerequisites & Series Goal
-4. Install Node.js
-5. Create a NestJS app
-6. Overvire of Basic NestJS Structure
-7. Running the NestJS app
-8. Creating a users module
-9. Creating a users controller
-10. Creating a user provider  
+1. Starter Code + Quick Review
+2. What are Controllers? And how do they work?
+3. Controller structure
+4. GET Routes
+5. Route Order is Important
+6. POST Route
+7. PATCH Route
+8. DELETE Route
+9. Query Parameters
 
 ## Commands
 
@@ -22,6 +21,12 @@ $ nest g controller users
 
 # How to create provider
 $ nest g service users
+```
+
+To run and watch:
+
+```bash
+npm run start:dev
 ```
 
 Thanks.
