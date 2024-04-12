@@ -1,30 +1,30 @@
-# Lesson 3
+# Lesson 4
+
+Nest JS DTO Schemas, Validation & Pipes Tutorial
 
 1. Starter Code
-2. Quick Review & Lesson Goals
-3. What are NestJS Providers?
-4. Create the Service Class
-5. Dependency Injection & the Constructor
-6. Update the Controller
-7. Test the Endpoints
+2. Why We Need Request Validation
+3. NestJS Pipes
+4. Creating a DTO Schema
+5. Extending a DTO as a Partial Type
+6. Applying the DTOs
+7. Class Validators
+8. Applying ValidationPipe
+9. Built-in HTTP Exceptions
+10. Wrap-up
 
-## Commands
+## Install
+
+Install 'PartialType' as 'devDependencies'
 
 ```bash
-# How to create module
-$ nest g module users
-
-# How to create controller
-$ nest g controller users
-
-# How to create provider
-$ nest g service users
+npm i @nestjs/mapped-types -D
 ```
 
-To run and watch:
+Install 'Class validator' for validation
 
 ```bash
-npm run start:dev
+npm i --save class-validator class-transformer
 ```
 
 Thanks.
