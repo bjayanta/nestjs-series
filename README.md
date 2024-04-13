@@ -1,30 +1,31 @@
-# Lesson 4
+# Lesson 5
 
-Nest JS DTO Schemas, Validation & Pipes Tutorial
+NestJS + TypeORM Tutorial | Repositories, Relations, Migrations & More
 
-1. Starter Code
-2. Why We Need Request Validation
-3. NestJS Pipes
-4. Creating a DTO Schema
-5. Extending a DTO as a Partial Type
-6. Applying the DTOs
-7. Class Validators
-8. Applying ValidationPipe
-9. Built-in HTTP Exceptions
-10. Wrap-up
+1. Introduction + Starter Code
+2. Repositories
+3. Relations
+4. Transactions
+5. Subscribers
+6. Migrations
+7. Testing
 
 ## Install
 
-Install 'PartialType' as 'devDependencies'
+Install '@nestjs/typeorm', 'typeorm' and 'mysql2'
 
 ```bash
-npm i @nestjs/mapped-types -D
+npm i @nestjs/typeorm typeorm mysql2
 ```
 
-Install 'Class validator' for validation
+Install '@nestjs/config' for 'env'
 
 ```bash
-npm i --save class-validator class-transformer
+npm i @nestjs/config
 ```
+
+## Tutorials
+
+[NestJS + TypeORM Tutorial | Repositories, Relations, Migrations & More](https://www.youtube.com/watch?v=9MGKKJTwicM)
 
 Thanks.

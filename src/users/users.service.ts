@@ -1,6 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { EntityManager, Repository } from 'typeorm';
+import { User, UserRole } from './entities/user.entity';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class UsersService {
@@ -37,56 +40,46 @@ export class UsersService {
 		},
 	];
 
-	index(role?: 'INTERN' | 'ENGINEER' | 'ADMIN') {
+	constructor(
+		@InjectRepository(User)
+		private readonly usersRepository: Repository<User>,
+		private readonly entityManager: EntityManager,
+	) {}
+
+	async index(role?: UserRole) {
 		if (role) {
-			const rolesArray = this.users.filter(user => user.role === role);
+			const getRole = UserRole[role];
 
-			if (rolesArray.length === 0)
-				throw new NotFoundException('User role not found!');
+			if (!getRole) throw new NotFoundException('User role not found!');
 
-			return rolesArray;
+			return this.usersRepository.find({
+				where: { role },
+			});
 		}
 
-		return this.users;
+		const users = this.usersRepository.find();
+
+		return users;
 	}
 
-	show(id: number) {
-		const user = this.users.find(user => user.id === id);
-
-		if (!user) throw new NotFoundException('User not found!');
-
+	async show(id: number) {
+		const user = this.usersRepository.findOneByOrFail({ id });
 		return user;
 	}
 
-	create(user: CreateUserDto) {
-		const usersByHighestId = [...this.users].sort((a, b) => b.id - a.id);
-		const newUser = {
-			id: usersByHighestId[0].id + 1,
-			...user,
-		};
-
-		this.users.push(newUser);
+	async create(user: CreateUserDto) {
+		const newUser = new User(user);
+		await this.entityManager.save(newUser);
 
 		return newUser;
 	}
 
-	update(id: number, updatedUser: UpdateUserDto) {
-		this.users = this.users.map(user => {
-			if (user.id === id) {
-				return { ...user, ...updatedUser };
-			}
-
-			return user;
-		});
-
+	async update(id: number, updatedUser: UpdateUserDto) {
+		await this.entityManager.update(User, id, updatedUser);
 		return this.show(id);
 	}
 
-	delete(id: number) {
-		const removedUser = this.show(id);
-
-		this.users = this.users.filter(user => user.id !== id);
-
-		return removedUser;
+	async delete(id: number) {
+		return this.usersRepository.delete(id);
 	}
 }
